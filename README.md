@@ -1,2 +1,3 @@
 # PHP-Blog
-One-page blog site using plain PHP. 
+
+My first attempts in PHP.
