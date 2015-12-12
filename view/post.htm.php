@@ -1,6 +1,14 @@
-<p>
+<div class="blogPost">
+
     <h3><?php echo $post->getSubject(); ?></h3>
-    <div>
+
+    <div class="blogText">
         <?php echo $post->getText(); ?>
     </div>
-    <?php echo $post->getCreated_at(); ?>
+
+    <div class="blogFooter">
+        <?php echo $post->getAuthor(); ?>
+        <?php echo $post->getCreatedAt(); ?>
+    </div>
+
+</div>

@@ -13,12 +13,14 @@ class Storage
 {
     private static $instance = null;
 
+    private static $id;
     private $handler;
 
     public static function getInstance()
     {
         if (null === self::$instance)
         {
+            self::$id = 0;
             self::$instance = new self();
             self::$instance->setHandler(new JsonHandler());
         }
@@ -39,8 +41,9 @@ class Storage
         return $this->handler->getAllPosts();
     }
 
-    public function writeData() {
-
+    public function writeData($subject, $text, $author) {
+        //TODO date
+        $this->handler->addNewPost($subject, $text, '12.12.2016', $author);
     }
 
     public function removeData() {

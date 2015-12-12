@@ -6,7 +6,7 @@
  * Date: 12/12/15
  * Time: 4:47 PM
  */
-class Post {
+class Post implements JsonSerializable {
 
     private $id;
     private $subject;
@@ -29,6 +29,24 @@ class Post {
         $this->text = $text;
         $this->created_at = $created_at;
         $this->author = $author;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    function jsonSerialize()
+    {
+        $data['id'] = $this->id;
+        $data['subject'] = $this->subject;
+        $data['text'] = $this->text;
+        $data['created_at'] = $this->created_at;
+        $data['author'] = $this->author;
+
+        return $data;
     }
 
     /**

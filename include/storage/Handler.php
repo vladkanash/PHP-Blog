@@ -6,17 +6,11 @@
  * Date: 12/12/15
  * Time: 4:38 PM
  */
-class Handler
+interface Handler
 {
-    public function getAllPosts() {
+    public function getAllPosts();
 
-    }
+    public function addNewPost($subject, $text, $createdAt, $author);
 
-    public function addNewPost() {
-
-    }
-
-    public function deletePost() {
-
-    }
+    public function deletePost($id);
 }
