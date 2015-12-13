@@ -11,7 +11,9 @@
     </div>
 
     <div class="blogText">
-        <?php echo $post->getText(); ?>
+        <p>
+            <?php echo $post->getText(); ?>
+        </p>
     </div>
 
     <div class="blogFooter">

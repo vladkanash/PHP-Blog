@@ -8,6 +8,9 @@
  */
 
 include_once('JsonHandler.php');
+include_once('BinaryFileHandler.php');
+include_once('TextFileHandler.php');
+include_once('MySqlHandler.php');
 
 class Storage
 {
@@ -46,7 +49,7 @@ class Storage
         $postText = $text == null ? 'NO_TEXT' : $text;
         $postAuthor = $author == null ? 'NO_AUTHOR' : $author;
 
-        $createdAt = date('m.d.Y h:i', time());
+        $createdAt = date('m.d.Y H:i', time());
 
         $this->handler->addNewPost($postSubject, $postText, $createdAt, $postAuthor);
     }

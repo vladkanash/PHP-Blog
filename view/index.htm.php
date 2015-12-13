@@ -36,7 +36,7 @@
                 <div class="col-sm-8" id="blogBody">
                     <?php
                     $posts = Storage::getInstance()->readData();
-                    if (count($posts) != 0) {
+                    if (count($posts) > 0 && $posts != null) {
                         foreach($posts as $post) {
                             include('../view/post.htm.php');
                         }

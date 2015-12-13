@@ -31,6 +31,16 @@ class Post implements JsonSerializable {
         $this->author = $author;
     }
 
+    function __toString()
+    {
+        return $this->id . '+=+' .
+        $this->subject . '+=+' .
+        $this->text . '+=+' .
+        $this->created_at . '+=+' .
+        $this->author;
+    }
+
+
     /**
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
