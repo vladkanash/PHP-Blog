@@ -6,8 +6,8 @@
  * Time: 9:48 PM
  */
 
-include_once('../include/models/Post.php');
-include_once('../include/storage/Storage.php');
+require_once('../include/models/Post.php');
+require_once('../include/storage/Storage.php');
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -30,9 +30,8 @@ switch($action) {
     }
     default: break;
 }
-
 require_once('../view/index.htm.php');
-?>
+
 
 
 

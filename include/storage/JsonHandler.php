@@ -60,7 +60,7 @@ class JsonHandler implements Handler
     private function writeJson($json)
     {
         $new_json = json_encode($json);
-        $file = fopen($this->jsonStoragePath, 'w');
+        $file = fopen($this->jsonStoragePath, 'w+');
         fwrite($file, $new_json);
         fclose($file);
     }
