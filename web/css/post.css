@@ -1,6 +1,7 @@
 .blogPost
 {
-    padding: 20px;
+    padding: 40px;
+    border-bottom: 1px solid darkgrey;
 }
 
 .blogText
@@ -12,6 +13,20 @@
 {
     color: dimgrey;
     font-style: italic;
-    margin-top: 5px;
+    /*margin-top: 5px;*/
     float: right;
+    /*padding-bottom: 5px;*/
+}
+
+.blogTitle
+{
+    display: inline-block;
+}
+
+.delete
+{
+    padding: 10px;
+    float: right;
+    display: inline-block;
+    opacity: 0.8;
 }

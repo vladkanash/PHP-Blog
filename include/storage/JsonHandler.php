@@ -35,7 +35,7 @@ class JsonHandler implements Handler
             $id = end($posts)->getId() + 1;
         } else $id = 0;
 
-        $post = new Post($id, $subject, $text, '12.12.2016', $author);
+        $post = new Post($id, $subject, $text, $createdAt, $author);
         $posts[] = $post;
 
         $this->writeJson($posts);
@@ -47,7 +47,7 @@ class JsonHandler implements Handler
 
         for ($num = 0; $num < count($json); $num++) {
             if ($json[$num]['id'] == $id) {
-                unset($json[$num]);
+                array_splice($json, $num, 1);
                 break;
             }
         }

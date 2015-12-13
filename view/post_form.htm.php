@@ -3,7 +3,7 @@
         <form action="index.php?action=add" method="post">
             <fieldset class="form-group">
                 <label for="subject">Subject</label>
-                <input name="subject" type="text" class="form-control" id="subject" placeholder="Post subject">
+                <input name="subject" type="text" class="form-control" id="subject" maxlength="30" placeholder="Post subject">
             </fieldset>
 
             <fieldset class="form-group">
@@ -13,7 +13,7 @@
 
             <fieldset class="form-group">
                 <label for="author">Author</label>
-                <input name="author" type="text" class="form-control" id="author" placeholder="Enter your name">
+                <input name="author" type="text" class="form-control" id="author" maxlength="40" placeholder="Enter your name">
             </fieldset>
 
             <button type="submit" id="submit_btn" class="btn btn-primary">Submit</button>

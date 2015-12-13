@@ -1,6 +1,7 @@
 body
 {
-    background: url("../img/background.jpg") no-repeat fixed;
+    background-size:     cover;
+    background: url("../img/background.jpg") no-repeat fixed center center;
 }
 
 #blogBody
@@ -9,14 +10,14 @@ body
     background: whitesmoke;
 }
 
+
 #blogHeader
 {
     background: whitesmoke;
     padding: 60px 10% 10%;
     height: 20%;
-    opacity: 0.89;
+    opacity: 0.9;
     box-shadow: 0 0 55px 55px whitesmoke;
-    /*display: none;*/
 }
 #blogHeader .blog-title
 {

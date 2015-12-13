@@ -42,12 +42,17 @@ class Storage
     }
 
     public function writeData($subject, $text, $author) {
-        //TODO date
-        $this->handler->addNewPost($subject, $text, '12.12.2016', $author);
+        $postSubject = $subject == null ? 'NO_SUBJECT' : $subject;
+        $postText = $text == null ? 'NO_TEXT' : $text;
+        $postAuthor = $author == null ? 'NO_AUTHOR' : $author;
+
+        $createdAt = date('m.d.Y h:i', time());
+
+        $this->handler->addNewPost($postSubject, $postText, $createdAt, $postAuthor);
     }
 
-    public function removeData() {
-
+    public function removeData($id) {
+        $this->handler->deletePost($id);
     }
 
     public function setHandler(Handler $hnd) {
