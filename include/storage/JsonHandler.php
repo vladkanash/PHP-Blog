@@ -15,6 +15,7 @@ class JsonHandler implements Handler
 
     public function getAllPosts() {
 
+        $list = [];
         $json = $this->readJson();
 
         for ($num = 0; $num < count($json); $num++) {

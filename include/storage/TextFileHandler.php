@@ -14,6 +14,7 @@ class TextFileHandler implements Handler
 
     public function getAllPosts()
     {
+        $posts = [];
         $contents = file_get_contents($this->textStoragePath);
         $strings = explode($this->postDelimiter, $contents);
         array_pop($strings);
