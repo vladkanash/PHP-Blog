@@ -15,15 +15,12 @@ include_once('MySqlHandler.php');
 class Storage
 {
     private static $instance = null;
-
-    private static $id;
     private $handler;
 
     public static function getInstance()
     {
         if (null === self::$instance)
         {
-            self::$id = 0;
             self::$instance = new self();
             self::$instance->setHandler(new JsonHandler());
         }
