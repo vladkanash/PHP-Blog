@@ -24,7 +24,7 @@
         </nav>
 
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row" id="blogHeader">
                 <div class="col-sm-12">
                     <h1 class="blog-title">My PHP Blog</h1>
