@@ -28,10 +28,10 @@ class Route
             $id = $routes[3];
         }
 
-        $controller_name = 'controller_'.$controller_name;
+        $controller_name = 'Controller_'.$controller_name;
         $action_name = 'action_'.$action_name;
 
-        $controller_file = strtolower($controller_name).'.php';
+        $controller_file = $controller_name .'.php';
         $controller_path = "../include/controllers/".$controller_file;
         if(file_exists($controller_path)) {
             include $controller_path;

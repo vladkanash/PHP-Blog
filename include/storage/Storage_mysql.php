@@ -6,7 +6,7 @@
  * Date: 12/13/15
  * Time: 2:57 AM
  */
-class storage_mysql implements storage_handler
+class Storage_mysql implements Storage_handler
 {
 
     //CREATE TABLE php_blog.posts

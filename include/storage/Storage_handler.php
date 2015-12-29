@@ -6,7 +6,7 @@
  * Date: 12/12/15
  * Time: 4:38 PM
  */
-interface storage_handler
+interface Storage_handler
 {
     public function getAllPosts();
 

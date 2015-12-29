@@ -6,7 +6,7 @@
  * Date: 12/29/15
  * Time: 2:33 PM
  */
-class controller
+class Controller
 {
 
     function __construct()

@@ -7,9 +7,8 @@
  * Time: 4:45 PM
  */
 
-require_once('storage_handler.php');
 
-class storage_json implements storage_handler
+class Storage_json implements Storage_handler
 {
     private $jsonStoragePath = "../storage/storage.json";
 

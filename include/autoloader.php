@@ -8,29 +8,22 @@
 
 function __autoload($class_name) {
     switch ($class_name) {
-        case 'Post' : {
+        case 'Post' :
             require_once('../include/models/Post.php');
             break;
-        }
 
-        case 'Config' : {
-            require_once('../include/Config.php');
+        case 'Config' :
+        case 'Route'  :
+            require_once('../include/' . $class_name . '.php');
             break;
-        }
 
-        case 'Route' : {
-            require_once '../include/Route.php';
-            break;
-        }
-
-        default : {
-            if(strpos($class_name, 'controller', 0) === 0) {
+        default :
+            if(strpos($class_name, 'Controller', 0) === 0) {
                 require_once '../include/controllers/' . $class_name . '.php';
                 break;
-            } elseif (strpos($class_name, 'storage', 0) === 0) {
+            } elseif (strpos($class_name, 'Storage', 0) === 0) {
                 require_once '../include/storage/' . $class_name . '.php';
                 break;
             }
-        }
     }
 }
