@@ -1,0 +1,9 @@
+{
+  "mysql_host": "localhost",
+  "mysql_user": "root",
+  "mysql_pass": "pass",
+  "mysql_database": "php_blog",
+
+  "storage_type": "text"
+
+}

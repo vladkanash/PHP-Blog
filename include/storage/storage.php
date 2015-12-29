@@ -8,7 +8,7 @@
  */
 
 
-class Storage
+class storage
 {
     private static $instance = null;
     private $handler;
@@ -18,7 +18,24 @@ class Storage
         if (null === self::$instance)
         {
             self::$instance = new self();
-            self::$instance->setHandler(new JsonHandler());
+            $storage_type = Config::getProperty('storage_type');
+            switch ($storage_type) {
+                case 'text' : {
+                    self::$instance->setHandler(new storage_text());
+                    break;
+                }
+                case 'json' : {
+                    self::$instance->setHandler(new storage_json());
+                    break;
+                }
+                case 'mysql' : {
+                    self::$instance->setHandler(new storage_mysql());
+                    break;
+                }
+                default : {
+                    self::$instance->setHandler(new storage_json());
+                }
+            }
         }
         return self::$instance;
     }
@@ -51,7 +68,7 @@ class Storage
         $this->handler->deletePost($id);
     }
 
-    public function setHandler(Handler $hnd) {
+    public function setHandler(storage_handler $hnd) {
        $this->handler = $hnd;
     }
 }

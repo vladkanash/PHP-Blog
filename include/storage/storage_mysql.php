@@ -6,7 +6,7 @@
  * Date: 12/13/15
  * Time: 2:57 AM
  */
-class MySqlHandler implements Handler
+class storage_mysql implements storage_handler
 {
 
     //CREATE TABLE php_blog.posts
@@ -18,10 +18,18 @@ class MySqlHandler implements Handler
     //author VARCHAR(255) NOT NULL
     //);
 
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = 'pass';
-    private $database = 'php_blog';
+    private $host;
+    private $user;
+    private $pass;
+    private $database;
+
+    public function __construct()
+    {
+        $this->host = Config::getProperty('mysql_host');
+        $this->user = Config::getProperty('mysql_user');
+        $this->pass = Config::getProperty('mysql_pass');
+        $this->database = Config::getProperty('mysql_database');
+    }
 
     public function getAllPosts()
     {

@@ -32,6 +32,6 @@ class Config
         if(isset(self::$properties[$name])){
             return self::$properties[$name];
         }
-        return '';
+        return null;
     }
 }

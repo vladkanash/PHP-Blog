@@ -6,7 +6,7 @@
  * Date: 12/13/15
  * Time: 2:57 AM
  */
-class BinaryFileHandler implements Handler
+class storage_binary implements storage_handler
 {
 
     private $binaryStoragePath = "../storage/storage.bin";

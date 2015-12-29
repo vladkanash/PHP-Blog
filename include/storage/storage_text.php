@@ -6,7 +6,7 @@
  * Date: 12/13/15
  * Time: 2:58 AM
  */
-class TextFileHandler implements Handler
+class storage_text implements storage_handler
 {
     private $textStoragePath = "../storage/storage.txt";
     private $postDelimiter = "\n+=+=+";

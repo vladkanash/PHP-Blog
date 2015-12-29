@@ -23,18 +23,14 @@ function __autoload($class_name) {
             break;
         }
 
-        case 'controller_blog' : {
-            require_once '../include/controllers/controller_blog.php';
-            break;
-        }
-
-        case 'controller' : {
-            require_once '../include/controllers/controller.php';
-            break;
-        }
-
         default : {
-            require_once('../include/storage/' . $class_name . '.php');
+            if(strpos($class_name, 'controller', 0) === 0) {
+                require_once '../include/controllers/' . $class_name . '.php';
+                break;
+            } elseif (strpos($class_name, 'storage', 0) === 0) {
+                require_once '../include/storage/' . $class_name . '.php';
+                break;
+            }
         }
     }
 }
