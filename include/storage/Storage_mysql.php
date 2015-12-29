@@ -18,25 +18,22 @@ class Storage_mysql implements Storage_handler
     //author VARCHAR(255) NOT NULL
     //);
 
-    private $host;
-    private $user;
-    private $pass;
-    private $database;
+    private $con; //MySQL connection
 
     public function __construct()
     {
-        $this->host = Config::getProperty('mysql_host');
-        $this->user = Config::getProperty('mysql_user');
-        $this->pass = Config::getProperty('mysql_pass');
-        $this->database = Config::getProperty('mysql_database');
+        $host = Config::getProperty('mysql_host');
+        $user = Config::getProperty('mysql_user');
+        $pass = Config::getProperty('mysql_pass');
+        $database = Config::getProperty('mysql_database');
+
+        $this->con = mysqli_connect($host, $user, $pass, $database);
     }
 
     public function getAllPosts()
     {
-        $con = mysqli_connect($this->host, $this->user, $this->pass, $this->database);
-
         $sql = "SELECT * FROM posts";
-        $result = mysqli_query($con, $sql);
+        $result = mysqli_query($this->con, $sql);
         $list = [];
 
         while($post = mysqli_fetch_array($result)) {
@@ -48,34 +45,31 @@ class Storage_mysql implements Storage_handler
         }
 
         mysqli_free_result($result);
-        mysqli_close($con);
-
         return $list;
     }
 
     public function addNewPost($subject, $text, $createdAt, $author)
     {
-        $con = mysqli_connect($this->host, $this->user, $this->pass, $this->database);
-
-        $subj = mysqli_real_escape_string($con, $subject);
-        $txt = mysqli_real_escape_string($con, $text);
-        $created = mysqli_real_escape_string($con, $createdAt);
-        $auth = mysqli_real_escape_string($con, $author);
+        $subj = mysqli_real_escape_string($this->con, $subject);
+        $txt = mysqli_real_escape_string($this->con, $text);
+        $created = mysqli_real_escape_string($this->con, $createdAt);
+        $auth = mysqli_real_escape_string($this->con, $author);
 
         $query = "INSERT INTO posts (subject, text, created_at, author)
               VALUES ('$subj', '$txt', '$created', '$auth')";
-
-        mysqli_query($con, $query);
-        mysqli_close($con);
+        mysqli_query($this->con, $query);
     }
 
     public function deletePost($id)
     {
-        $con = mysqli_connect($this->host, $this->user, $this->pass, $this->database);
-
-        $query = "DELETE FROM posts WHERE id='$id'";
-        mysqli_query($con, $query);
-        mysqli_close($con);
+        $txt = mysqli_real_escape_string($this->con, $id);
+        $query = "DELETE FROM posts WHERE id='$txt'";
+        mysqli_query($this->con, $query);
+    }
+    
+    public function __destruct()
+    {
+        mysqli_close($this->con);
     }
 }
 

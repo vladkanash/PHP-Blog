@@ -9,11 +9,11 @@
 class Controller
 {
 
-    function __construct()
-    {
+    function __construct() {
+
     }
 
-    function action_index()
-    {
+    function action_index() {
+
     }
 }

@@ -8,6 +8,8 @@
 
 function __autoload($class_name) {
     switch ($class_name) {
+
+
         case 'Post' :
             require_once('../include/models/Post.php');
             break;

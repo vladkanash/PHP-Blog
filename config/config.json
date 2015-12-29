@@ -4,6 +4,5 @@
   "mysql_pass": "pass",
   "mysql_database": "php_blog",
 
-  "storage_type": "text"
-
+  "storage_type": "json"
 }
