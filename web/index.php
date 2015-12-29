@@ -6,31 +6,11 @@
  * Time: 9:48 PM
  */
 
-require_once('../include/models/Post.php');
-require_once('../include/storage/Storage.php');
+ini_set('display_errors', 1);
 
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = '';
-}
+require_once('../include/autoloader.php');
+Route::start();
 
-switch($action) {
-    case('add'): {
-        Storage::getInstance()->writeData($_POST['subject'], $_POST['text'], $_POST['author']);
-        header("Location:index.php");
-        break;
-    }
-    case ('delete'): {
-        if (isset($_GET['id'])) {
-            Storage::getInstance()->removeData($_GET['id']);
-            header("Location:index.php");
-        }
-        break;
-    }
-    default: break;
-}
-require_once('../view/index.htm.php');
 
 
 

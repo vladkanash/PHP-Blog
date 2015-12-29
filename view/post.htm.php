@@ -5,7 +5,7 @@
     </div>
 
     <div class="delete">
-        <a href="index.php?action=delete&id=<?php echo $post->getId(); ?>">
+        <a href="blog/delete/<?php echo $post->getId(); ?>">
             <img src="img/delete.png" width="30" height="30"/>
         </a>
     </div>

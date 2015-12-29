@@ -7,10 +7,6 @@
  * Time: 4:36 PM
  */
 
-include_once('JsonHandler.php');
-include_once('BinaryFileHandler.php');
-include_once('TextFileHandler.php');
-include_once('MySqlHandler.php');
 
 class Storage
 {

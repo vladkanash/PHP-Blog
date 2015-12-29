@@ -1,6 +1,6 @@
 <div id="formContainer">
     <div id="form">
-        <form action="index.php?action=add" method="post">
+        <form action="blog/add" method="post">
             <fieldset class="form-group">
                 <label for="subject">Subject</label>
                 <input name="subject" type="text" class="form-control" id="subject" maxlength="30" placeholder="Post subject">

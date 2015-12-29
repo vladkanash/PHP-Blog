@@ -1,4 +1,5 @@
 <html>
+    <base href="/" />
     <head>
         <title>My PHP blog</title>
 
@@ -26,18 +27,19 @@
 
         <div class="container-fluid">
             <div class="row" id="blogHeader">
-                <div class="col-sm-12">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
                     <h1 class="blog-title">My PHP Blog</h1>
                 </div>
+                <div class="col-sm-2"></div>
             </div>
 
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8" id="blogBody">
                     <?php
-                    $posts = Storage::getInstance()->readData();
                     if (count($posts) > 0 && $posts != null) {
-                        foreach($posts as $post) {
+                        foreach(array_reverse($posts) as $post) {
                             include('../view/post.htm.php');
                         }
                     }
